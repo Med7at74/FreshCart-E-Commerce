@@ -1,0 +1,10 @@
+.product {
+  border: solid 1px #0aad0a !important;
+  transition: all 0.5s;
+  overflow: hidden !important;
+
+  &:hover {
+    box-shadow: 0 0 10px #11bd1168 !important;
+    transform: scale(1.01);
+  }
+}

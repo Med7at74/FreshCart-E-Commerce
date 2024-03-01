@@ -1,0 +1,27 @@
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.main-section {
+  padding-top: 80px;
+}
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $main-color;
+  color: $light-color;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 9999;
+}
+

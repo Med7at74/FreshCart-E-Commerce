@@ -1,0 +1,33 @@
+.product {
+  border: solid 1px #0aad0a !important;
+  transition: all 0.5s;
+
+  &:hover {
+    box-shadow: 0 0 10px #11bd1168;
+    transform: scale(1.01);
+  }
+
+  .main-btn {
+    transform: translateY(190%);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  &:hover .main-btn {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.form-control {
+  border-color: #0aad0a !important;
+  transition: all 0.5s;
+  color: #0aad0a;
+
+  &:active {
+    border-color: #0aad0a !important;
+    box-shadow: 0 0 10px #11bd1168;
+  }
+  &::placeholder {
+    color: #0aad0a !important;
+  }
+}

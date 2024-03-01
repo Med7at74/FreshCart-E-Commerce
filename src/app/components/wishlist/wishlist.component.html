@@ -1,0 +1,108 @@
+<!-- <section
+  *ngIf="productOfWhichlist.length > 0; else msg"
+  class="p-4 shadow w-75 mx-auto bg-main-light rounded my-4"
+>
+  <div class="text-center">
+    <h2 class="text-main h4 fw-semibold">Wishlist</h2>
+  </div>
+  <div
+    class="row border-bottom pb-2 mb-2"
+    *ngFor="let item of productOfWhichlist"
+  >
+    <div class="col-md-2">
+      <img
+        class="w-100"
+        [src]="item.imageCover"
+        [title]="item.title"
+        title="imageCover"
+        [alt]="item.title"
+      />
+    </div>
+    <div class="col-md-10">
+      <div class="row h-100 align-items-center justify-content-between">
+        <div class="col-sm-6">
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p class="text-main small mb-0">Price : {{ item.price }} EGP</p>
+            <button
+              (click)="removeItem(item._id, btnRemoveItem)"
+              #btnRemoveItem
+              class="btn text-main m-0 p-0"
+            >
+              <i class="fas fa-trash-can"></i> Remove
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div>
+            <button
+              (click)="addProduct(item._id, btnAdd)"
+              #btnAdd
+              class="main-btn w-50 my-1 ms-auto d-block"
+            >
+              Add Product
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #msg>
+  <h2 class="text-center mt-5">You Don`t Have Any Favorite Products Yet!</h2>
+</ng-template> -->
+
+<section class="py-4 mx-5" *ngIf="productOfWhichlist.length > 0; else msg">
+  <h1 class="text-main fw-semibold mb-2">Your WishList <i class="fa-solid fa-shield-heart text-main fa-1x mx-2 fa-bounce"></i>:</h1>
+  <div class="row g-4">
+    <div class="col-md-2" *ngFor="let item of productOfWhichlist">
+      <div class="product cursor-pointer p-2 h-100">
+        <i
+          *ngIf="!wishlistProductId.includes($any(item._id))"
+          (click)="addToWishlist(item._id)"
+          class="fa-regular fa-heart heart"
+        ></i>
+        <i
+          *ngIf="wishlistProductId.includes($any(item._id))"
+          (click)="removeFromWishlist(item._id)"
+          class="fa-solid fa-heart heart"
+        ></i>
+
+        <div role="button" [routerLink]="['/details', item._id]">
+          <img
+            [title]="item.title"
+            class="w-100"
+            [src]="item.imageCover"
+            [alt]="item.title"
+            title="."
+          />
+          <h4 class="h6 my-2">{{ item.category.name }}</h4>
+          <h5 class="h6 text-main">
+            {{ item.title | cuttext : 2 }}
+          </h5>
+          <div class="d-flex align-items-center justify-content-between my-2">
+            <p>{{ item.price }} EGP</p>
+            <p>
+              <i class="fas fa-star rating-color"></i
+              ><span class="text-muted"> {{ item.ratingsAverage }}</span>
+            </p>
+          </div>
+        </div>
+
+        <button
+          (click)="addProduct(item._id, btnAdd)"
+          #btnAdd
+          class="main-btn w-100 my-1"
+        >
+          Add Product<i class="fas fa-cart-plus ms-1 fa-bounce"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<ng-template #msg>
+  <h2 class="text-center text-main mt-5">You Don`t Have Any Favorite Products Yet! <i class="fa-regular fa-face-sad-tear mx-2 fa-bounce"></i></h2>
+</ng-template>

@@ -1,0 +1,33 @@
+<section class="py-3 my-4 p-3 w-75 mx-auto shadow rounded-2">
+  <h2 class="h3 fw-semibold mb-3 text-main">Online payment</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="payFun()">
+    <div class="mb-3">
+      <label for="details">Details :</label>
+      <input
+        class="form-control"
+        type="text "
+        formControlName="details"
+        id="details"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="phone">Phone :</label>
+      <input
+        class="form-control"
+        type="tel "
+        formControlName="phone"
+        id="phone"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="city">City :</label>
+      <input
+        class="form-control"
+        type="text "
+        formControlName="city"
+        id="city"
+      />
+    </div>
+    <button class="main-btn mt-2 px-3 ms-auto d-block">Check Out <i class="fa-solid fa-credit-card fa-bounce text-light"></i></button>
+  </form>
+</section>

@@ -1,0 +1,65 @@
+
+<section
+  class="p-4  w-75 mx-auto   my-4"
+  *ngIf="allOrderList.length>0; else msg"
+>
+<h2 class="text-main fw-semibold mb-2 main-title">
+  Your Orders <i class="fas fa-cart-plus fa-1x text-main fa-bounce mb-2 "></i> :
+ </h2>
+
+
+  <div
+    class="row  gy-4  shadow rounded-3 p-3 my-5 product "
+    *ngFor="let order of allOrderList"
+  >
+  <div class="d-flex align-items-center justify-content-between">
+    <h3 class="fw-semibold h5 text-dark main-title">Order Id : {{order.id}}</h3>
+    <h3 class="text-main h5 fw-semibold main-title">Total Price : {{ order.totalOrderPrice}} EGP</h3>
+  </div>
+
+    <div class="row  gy-1" *ngFor="let item of order.cartItems">
+
+        <div class="col-md-3">
+          <img
+          class="w-50 rounded-4"
+            [src]="item.product.imageCover"
+            [title]="item.product.title"
+            title="imageCover"
+            [alt]="item.product.title"
+          />
+        </div>
+      <div class="col-md-9 d-flex flex-column justify-content-center ">
+      <div class="row ">
+            <div class="col-md-9  ">
+              <h3 class="fw-semibold h4 text-main">{{ item.product.title }}</h3>
+              <h3 class="fw-semibold h5 text-dark">{{ item.product.category.name }}</h3>
+              <h3 class="fw-semibold h6 text-dark">{{ item.product.brand.name}}</h3>
+            </div>
+            <div class="col-md-3 ">
+          <div class="mx-auto  text-center">
+                <p class="fw-semibold text-dark small mb-1 border small border-success rounded p-1">Price : {{ item.price }} EGP </p>
+                <p class="fw-semibold text-dark border small border-success rounded p-1 ">Count of Items  : {{ item.count }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+<div class="d-flex align-items-center fw-semibold justify-content-between border-top pt-2">
+      <p class=" small mb-0 main-title">Name : {{order.user.name}}</p>
+      <p class=" small mb-0 main-title">Email : {{order.user.email}}</p>
+      <p class=" small mb-0 main-title">Phone : {{order.user.phone}}</p>
+      <p class=" small mb-0 main-title">City : {{ order.shippingAddress.city}} </p>
+      <p class=" small mb-0 main-title">Details : {{ order.shippingAddress.details}} </p>
+    </div>
+  </div>
+
+
+
+</section>
+
+<ng-template #msg>
+  <h2 class="text-center text-main mt-5">Your Shoping Cart is Empity.....<i class="fa-regular fa-face-sad-tear mx-2 fa-bounce"></i></h2>
+</ng-template>
+

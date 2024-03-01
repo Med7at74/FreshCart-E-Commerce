@@ -1,0 +1,72 @@
+<section
+  class="p-4 shadow w-75 mx-auto bg-main-light rounded my-4"
+  *ngIf="cartDetails; else msg"
+>
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="text-main fw-semibold mb-2 ">
+     Your Cart <i class="fas fa-cart-plus fa-1x text-main fa-bounce"></i> :
+    </h2>
+<button (click)="clearCart()" class="btn btn-outline-danger btn-sm px-3 py-1">
+  Clear All <i class="fas fa-trash"></i>
+    </button>
+  </div>
+  <p class="text-dark fw-semibold">Total Price : {{ cartDetails.totalCartPrice }} EGP</p>
+
+  <div
+    class="row border-bottom pb-2 mb-2"
+    *ngFor="let item of cartDetails.products"
+  >
+    <div class="col-md-1">
+      <img
+        class="w-100"
+        [src]="item.product.imageCover"
+        [title]="item.product.title"
+        title="imageCover"
+        [alt]="item.product.title"
+      />
+    </div>
+    <div class="col-md-11 d-flex align-items-center justify-content-between">
+      <div>
+        <h3 class="fw-semibold text-dark">{{ item.product.title }}</h3>
+        <p class="fw-semibold text-dark small mb-0">Price : {{ item.price }} EGP</p>
+        <button
+          #btnRemoveItem
+          (click)="removeItem(item.product._id, btnRemoveItem)"
+          class="btn btn-outline-danger btn-sm px-3 py-1 my-2"
+        >
+          <i class="fas fa-trash-can"></i> Remove
+        </button>
+      </div>
+
+      <div>
+        <button
+          #btn1
+          (click)="changeCount(item.product._id, item.count + 1, btn1, btn2)"
+          class="btn btn-sm border-success"
+        >
+          +
+        </button>
+
+        <span class="mx-2">{{ item.count }}</span>
+        <button
+          #btn2
+          (click)="changeCount(item.product._id, item.count - 1, btn1, btn2)"
+          class="btn btn-sm border-success"
+        >
+          -
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button
+    [routerLink]="['/payment', cartDetails._id]"
+class="main-btn py-0 px-3 mt-3  d-block ms-auto"
+  >
+    Order Now <img class="p-0 m-0"  src="./assets/images/master new.svg" alt="visa" />
+  </button>
+</section>
+
+<ng-template #msg>
+  <h2 class="text-center text-main mt-5">Your Shoping Cart is Empity.....<i class="fa-regular fa-face-sad-tear mx-2 fa-bounce"></i></h2>
+</ng-template>

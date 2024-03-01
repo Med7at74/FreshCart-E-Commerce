@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+// owl-carosel import
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+  rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.5s;
+
+// custom scrollbar style
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: $light-color;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $main-color;
+  border-radius: 20px;
+}
+
+body {
+  font-family: $font-family;
+}
+.loader {
+  color: $light-color;
+}
+.text-main {
+  color: $main-color;
+}
+.bg-main-light {
+  background-color: $light-color;
+}
+.rating-color {
+  color: $rating-color;
+}
+.font-sm {
+  font-size: 11px;
+}
+.bg-main {
+  background-color: $main-color;
+}
+.text-main-light {
+  color: $light-color;
+}
+.main-btn {
+  background-color: $main-color;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  border: unset;
+  padding: 4px 8px;
+
+  &:disabled {
+    background-color: #75e375;
+    color: #ffffff;
+    cursor: not-allowed;
+  }
+}
+
+.product {
+  border: 1px solid $main-color;
+  padding: 4px;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  overflow: hidden !important;
+  position: relative;
+
+  &:hover {
+    .heart {
+      right: 5px;
+    }
+  }
+}
+.active-link {
+  background-color: $main-color !important;
+  color: #fff !important;
+  border-radius: 5px !important ;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+.heart {
+  position: absolute;
+  top: 5px;
+  right: -50px;
+  font-size: 25px;
+  color: #0aad0a;
+  transition: all $main-transition;
+}
+
+.main-title {
+  background-color: #cfe7d9 !important;
+  padding: 8px !important;
+  border-radius: 6px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #0aad0a !important;
+  color: #fefefe;
+  cursor: default;
+  border-radius: 5px;
+}
+
+.owl-theme .owl-nav [class*="owl-"] {
+  color: $light-color;
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: $main-color;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown-menu .dropdown-item {
+  --bs-dropdown-link-active-bg: #0aad0a !important;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #75b475;
+  display: block;
+  transition: opacity 200ms ease;
+  border-radius: 30px;
+  // transition: all 0.5s;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #0aad0a;
+  width: 12px;
+  height: 12px;
+}

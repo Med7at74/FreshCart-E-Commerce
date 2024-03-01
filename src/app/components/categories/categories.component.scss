@@ -1,0 +1,9 @@
+.category {
+  transition: all 0.5s;
+
+  &:hover {
+    // border: solid 1px #0aad0a !important;
+    box-shadow: 3px 3px 10px #11bd1168 !important;
+    transform: scale(1.01);
+  }
+}
